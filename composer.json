@@ -1,0 +1,24 @@
+{
+  "name": "creativeorange/pretty-error-pages",
+  "require": {
+    "laravel/framework": "^7|^8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Creativeorange\\PrettyErrorPages\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Creativeorange",
+      "email": "info@creativeorange.nl"
+    }
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Creativeorange\\PrettyErrorPages\\PrettyErrorPagesServiceProvider"
+      ]
+    }
+  }
+}
