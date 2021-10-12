@@ -7,8 +7,15 @@ use Illuminate\View\View;
 
 class FormErrorPage extends Component
 {
-    public function __construct(public $error, public $message, public $title)
+    public $error;
+    public $message;
+    public $title;
+
+    public function __construct($error, $message, $title)
     {
+        $this->title = $title;
+        $this->message = $message;
+        $this->error = $error;
     }
     
     /**

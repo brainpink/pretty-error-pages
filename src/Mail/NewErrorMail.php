@@ -11,19 +11,32 @@ class NewErrorMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public ?string $lastName = null;
+    public Carbon $date;
+    public string $code;
+    public string $description;
+    public ?string $firstName = null;
+    public ?string $email = null;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
     public function __construct(
-        public Carbon $date,
-        public string $code,
-        public string $description,
-        public ?string $firstName = null,
-        public ?string $lastName = null,
-        public ?string $email = null
+        Carbon $date,
+        string $code,
+        string $description,
+        ?string $firstName = null,
+        ?string $lastName = null,
+        ?string $email = null
     ) {
+        $this->email = $email;
+        $this->firstName = $firstName;
+        $this->description = $description;
+        $this->code = $code;
+        $this->date = $date;
+        $this->lastName = $lastName;
         //
     }
 
