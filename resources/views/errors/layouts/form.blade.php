@@ -24,7 +24,7 @@
                         {{ __('pretty-error-pages::pretty-error-pages.let-us-know') }}
                     </h2>
 
-                    @if($errors->any())
+                    @if(isset($errors) && $errors->any())
                         @foreach($errors->all() as $e)
                             <span class="text-red-600">{{ $e }}</span>
                         @endforeach
