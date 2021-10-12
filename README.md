@@ -1,6 +1,7 @@
 # pretty-error-pages
 
 App/Exceptions/Handler.php
+```php
     public function render($request, Throwable $e)
     {
         if ($this->isHttpException($e)) {
@@ -12,3 +13,4 @@ App/Exceptions/Handler.php
             return parent::render($request, $e);
         }
     }
+```
