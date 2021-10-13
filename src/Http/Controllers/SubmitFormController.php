@@ -12,15 +12,22 @@ class SubmitFormController extends Controller
 {
     public function __invoke(SubmitFormRequest $request)
     {
-        Mail::to(config('pretty-error-pages.mail_to.address'))
-            ->send(new NewErrorMail(
-                Carbon::now(),
-                $request->get('code'),
-                $request->get('description'),
-                $request->get('first_name'),
-                $request->get('last_name'),
-                $request->get('email'),
-            ));
+        $emailAddresses = config('pretty-error-pages.mail_to.address');
+        if (is_string($emailAddresses)) {
+            $emailAddresses = [$emailAddresses];
+        }
+
+        foreach ($emailAddresses as $emailAddress) {
+            Mail::to($emailAddress)
+                ->send(new NewErrorMail(
+                           Carbon::now(),
+                           $request->get('code'),
+                           $request->get('description'),
+                           $request->get('first_name'),
+                           $request->get('last_name'),
+                           $request->get('email'),
+                       ));
+        }
 
         return redirect()->to(config('pretty-error-pages.home'));
     }
