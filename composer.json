@@ -2,7 +2,7 @@
   "name": "creativeorange/pretty-error-pages",
   "require": {
     "php": "^8.0",
-    "laravel/framework": "^7|^8|^9"
+    "laravel/framework": "^7|^8|^9|^10"
   },
   "autoload": {
     "psr-4": {
